@@ -3,3 +3,55 @@
   padding: 0 1rem;
   margin: 3rem auto 6rem;
 }
+
+.input {
+  background-color: #dfdfdf;
+}
+
+.complete, .clear {
+  border: 0;
+  background-color: transparent;
+  font-size: 1em;
+  color: #8f8f8f;
+}
+
+.complete {
+  text-align: left;
+}
+
+.clear {
+  text-align: right;
+}
+
+.list {
+  list-style: none;
+}
+
+.controls {
+  display: grid;
+  align-items:center;
+  grid-template-columns: 1fr 1fr
+}
+
+.dblCheckComplete {
+  display: grid;
+  align-items:center;
+  grid-template-columns: 1fr 4fr
+}
+
+.statusBar {
+  color: #8f8f8f;
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: 2fr 1fr;
+}
+
+.filter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.count, .selectedFilter {
+  color: #000;
+}
