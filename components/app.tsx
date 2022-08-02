@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import styles from './app.module.scss';
+import NewTodo from './new-todo';
+import ListControls from './list-controls';
 
-export default () => {
+export default (): JSX.Element => {
   const [items, setItems] = useState([
     {done: false, text: 'Buy groceries'},
     {done: true, text: 'Walk the dog'},
@@ -9,18 +11,8 @@ export default () => {
 
   return (
     <main className={styles.container}>
-      <section className={styles.field}>
-        <img className={styles.checklist} src='images/checklist.png' />
-        <input className={styles.input} type="text" placeholder='New todo...' />
-        <button type="button" className={styles.add}>Add</button>
-      </section>
-      <section className={styles.controls}>
-        <section className={styles.dblCheckComplete}>
-          <img className={styles.dblCheckMark} src='images/double-checkmark.png' />
-          <button type="button" className={styles.complete}>Complete all tasks</button>
-        </section>
-        <button type="button" className={styles.clear}>Clear completed</button>
-      </section>
+      <NewTodo />
+      <ListControls />
       <hr />
       <ul className={styles.list}>
         {items.map(item => (

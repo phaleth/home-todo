@@ -1,0 +1,39 @@
+.field {
+  height: 4rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  justify-content: space-evenly;
+  padding-left: 0.75rem;
+}
+
+.checklist {
+  width: auto;
+  height: 2.5rem;
+  z-index: 10;
+}
+
+.input {
+  width: 80%;
+  background-color: #fff;
+  border: 1px solid #8f8f8f;
+  border-radius: 0.5rem;
+  height: 3.5rem;
+  font-size: 2rem;
+  padding: 0 0.5rem 0 4rem;
+  margin-left: -4rem;
+}
+
+.add {
+  width: 5rem;
+  height: 3.5rem;
+  background-color: #fff;
+  border: 1px solid #8f8f8f;
+  border-radius: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.add:hover {
+  background-color: #efefef;
+}

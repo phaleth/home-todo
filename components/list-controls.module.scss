@@ -1,0 +1,32 @@
+.controls {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 0.5rem;
+}
+
+.dblCheckComplete {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 8fr;
+}
+
+.dblCheckMark {
+  height: 1.5rem;
+  margin-left: 0.75rem;
+}
+
+.complete, .clear {
+  border: 0;
+  background-color: transparent;
+  font-size: 1em;
+  color: #8f8f8f;
+}
+
+.complete {
+  text-align: left;
+}
+
+.clear {
+  text-align: right;
+}
