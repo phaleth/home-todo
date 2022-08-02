@@ -13,8 +13,8 @@ export default (): JSX.Element => {
 
   return (
     <main className={styles.container}>
-      <NewTodo />
-      <ListControls />
+      <NewTodo items={items} setItems={setItems} />
+      <ListControls items={items} setItems={setItems} />
       <hr />
       <TodoList items={items} setItems={setItems} />
       <hr />
