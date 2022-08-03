@@ -2,8 +2,8 @@ import { filterItems } from '../services/filter.service';
 import styles from './new-todo.module.scss';
 
 export default ({ items, setItems, filter, setFilteredItems }): JSX.Element => {
-  const handleAddClick = e => {
-    const todoTxtEl = e.target.parentElement.querySelector('input');
+  const addTodo = evt => {
+    const todoTxtEl = evt.target.parentElement.querySelector('input');
     const todoTxt = todoTxtEl.value;
     if (!todoTxt) {
       alert('Item text is not defined');
@@ -17,10 +17,18 @@ export default ({ items, setItems, filter, setFilteredItems }): JSX.Element => {
     }
   }
 
+  const handleAddClick = evt => addTodo(evt);
+
+  const handleKeyPress = evt => {
+    if (evt.key === 'Enter') {
+      addTodo(evt);
+    }
+  }
+
   return (
     <section className={styles.field}>
       <img className={styles.checklist} src='images/checklist.png' />
-      <input className={styles.input} type="text" placeholder='New todo...' />
+      <input className={styles.input} type="text" placeholder='New todo...' onKeyPress={handleKeyPress} />
       <button type="button" className={styles.add} onClick={handleAddClick}>Add</button>
     </section>
   )
