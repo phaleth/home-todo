@@ -5,12 +5,6 @@
   grid-template-columns: 2fr 1fr;
 }
 
-.filter {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.count, .selectedFilter {
+.counter {
   color: #000;
 }

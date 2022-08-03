@@ -6,14 +6,13 @@ export default ({ items, setItems }): JSX.Element => {
     const todoTxt = todoTxtEl.value;
     if (!todoTxt) {
       alert('Item text is not defined');
-      return;
     } else if (items.find(item => item.text.toLowerCase() === todoTxt.toLowerCase())) {
       alert('Item already exists');
-      return;
+    } else {
+      todoTxtEl.value = '';
+      items.push({done: false, text: todoTxt});
+      setItems([...items]);
     }
-    todoTxtEl.value = '';
-    items.push({done: false, text: todoTxt});
-    setItems([...items]);
   }
 
   return (

@@ -1,16 +1,13 @@
 import styles from '../components/status-bar.module.scss';
+import Filter from './filter';
 
-export default () => {
+export default (): JSX.Element => {
   return (
     <section className={styles.statusBar}>
       <span>
-        <strong className={styles.count}>3</strong> tasks left
+        <strong className={styles.counter}>3</strong> tasks left
       </span>
-      <nav className={styles.filter}>
-        <span className={styles.selectedFilter}>All</span>
-        <span>Incomplete</span>
-        <span>Complete</span>
-      </nav>
+      <Filter />
     </section>
   )
 }
