@@ -1,7 +1,11 @@
+import { useContext } from 'react';
 import { filterItems } from '../services/filter.service';
+import { ItemsContext } from './app';
 import styles from './new-todo.module.scss';
 
-export default ({ items, setItems, filter, setFilteredItems }): JSX.Element => {
+export default ({ setItems, filter, setFilteredItems }): JSX.Element => {
+  const items = useContext(ItemsContext);
+
   const addTodo = evt => {
     const todoTxtEl = evt.target.parentElement.querySelector('input');
     const todoTxt = todoTxtEl.value;

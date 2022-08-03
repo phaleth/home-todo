@@ -1,6 +1,10 @@
+import { useContext } from 'react';
 import styles from '../components/task-counter.module.scss';
+import { ItemsContext } from './app';
 
-export default ({ items }) => {
+export default () => {
+  const items = useContext(ItemsContext);
+
   const incompleteTaskCount = items.filter(item => !item.done).length;
 
   return (

@@ -1,7 +1,11 @@
+import { useContext } from 'react';
 import styles from '../components/todo-list.module.scss';
 import { filterItems } from '../services/filter.service';
+import { ItemsContext } from './app';
 
-export default ({ items, setItems, filter, filteredItems, setFilteredItems }) => {
+export default ({ setItems, filter, filteredItems, setFilteredItems }) => {
+  const items = useContext(ItemsContext);
+
   const handleCheckmarkClick = (evt, i) => {
     items[i].done = !items[i].done;
     setItems([...items]);

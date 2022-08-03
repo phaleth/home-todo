@@ -1,8 +1,11 @@
 import styles from '../components/filter.module.scss';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { triggerFilter, filterItems } from '../services/filter.service';
+import { ItemsContext } from '../components/app'
 
-export default ({ items, setFilter, setFilteredItems }): JSX.Element => {
+export default ({ setFilter, setFilteredItems }): JSX.Element => {
+  const items = useContext(ItemsContext);
+
   const [filters, setFilters] = useState([
     {selected: true, label: 'All'},
     {selected: false, label: 'Incomplete'},

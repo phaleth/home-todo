@@ -1,7 +1,11 @@
+import { useContext } from 'react';
 import { filterItems } from '../services/filter.service';
+import { ItemsContext } from './app';
 import styles from './list-controls.module.scss';
 
-export default ({ items, setItems, filter, setFilteredItems }): JSX.Element => {
+export default ({ setItems, filter, setFilteredItems }): JSX.Element => {
+  const items = useContext(ItemsContext);
+
   const handleCompleteAllClick = () => {
     items.map(item => item.done = true);
     setItems([...items]);
@@ -9,8 +13,7 @@ export default ({ items, setItems, filter, setFilteredItems }): JSX.Element => {
   }
 
   const handleClearCompletedClick = () => {
-    items = items.filter(item => !item.done);
-    setItems([...items]);
+    setItems([...items.filter(item => !item.done)]);
     filterItems(filter, items, setFilteredItems);
   }
 
