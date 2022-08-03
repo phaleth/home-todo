@@ -1,11 +1,11 @@
 export const filterItems = (filter, items, setFilteredItems) => {
   switch (filter) {
     case 'Incomplete':
-      setFilteredItems(items.filter((item) => item.done === false));
+      setFilteredItems(items.filter(item => item.done === false));
       break;
 
     case 'Complete':
-      setFilteredItems(items.filter((item) => item.done === true));
+      setFilteredItems(items.filter(item => item.done === true));
       break;
 
     default:
@@ -28,4 +28,11 @@ export const triggerFilter = (filter, setFilter) => {
       setFilter('All');
       break;
   }
+};
+
+export const updatedFilters = (i, filters) => {
+  filters.forEach((filter, index) => {
+    filter.selected = index === i;
+  });
+  return filters;
 };

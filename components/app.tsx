@@ -1,9 +1,9 @@
 import { useState, createContext } from 'react';
 import styles from './app.module.scss';
-import NewTodo from './new-todo';
-import ListControls from './list-controls';
-import TodoList from './todo-list';
-import StatusBar from './status-bar';
+import NewTodo from './app/new-todo';
+import ListControls from './app/list-controls';
+import TodoList from './app/todo-list';
+import StatusBar from './app/status-bar';
 
 export const ItemsContext = createContext(null);
 
@@ -18,15 +18,15 @@ export default (): JSX.Element => {
   const [filteredItems, setFilteredItems] = useState([...items]);
 
   return (
-    <ItemsContext.Provider value={items}>
-      <main className={styles.container}>
+    <main className={styles.container}>
+      <ItemsContext.Provider value={items}>
         <NewTodo setItems={setItems} filter={filter} setFilteredItems={setFilteredItems} />
         <ListControls setItems={setItems} filter={filter} setFilteredItems={setFilteredItems} />
         <hr />
         <TodoList setItems={setItems} filter={filter} filteredItems={filteredItems} setFilteredItems={setFilteredItems} />
         <hr />
         <StatusBar setFilter={setFilter} setFilteredItems={setFilteredItems} />
-      </main>
-    </ItemsContext.Provider>
+      </ItemsContext.Provider>
+    </main>
   )
 }

@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import styles from '../components/task-counter.module.scss';
-import { ItemsContext } from './app';
+import styles from './task-counter.module.scss';
+import { ItemsContext } from '../../app';
 
 export default () => {
   const items = useContext(ItemsContext);
