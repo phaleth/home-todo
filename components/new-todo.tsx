@@ -1,6 +1,7 @@
+import { filterItems } from '../services/filter.service';
 import styles from './new-todo.module.scss';
 
-export default ({ items, setItems }): JSX.Element => {
+export default ({ items, setItems, filter, setFilteredItems }): JSX.Element => {
   const handleAddClick = e => {
     const todoTxtEl = e.target.parentElement.querySelector('input');
     const todoTxt = todoTxtEl.value;
@@ -12,6 +13,7 @@ export default ({ items, setItems }): JSX.Element => {
       todoTxtEl.value = '';
       items.push({done: false, text: todoTxt});
       setItems([...items]);
+      filterItems(filter, items, setFilteredItems);
     }
   }
 

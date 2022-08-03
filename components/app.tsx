@@ -11,14 +11,18 @@ export default (): JSX.Element => {
     {done: true, text: 'Walk the dog'},
   ]);
 
+  const [filter, setFilter] = useState('All');
+
+  const [filteredItems, setFilteredItems] = useState([...items]);
+
   return (
     <main className={styles.container}>
-      <NewTodo items={items} setItems={setItems} />
-      <ListControls items={items} setItems={setItems} />
+      <NewTodo items={items} setItems={setItems} filter={filter} setFilteredItems={setFilteredItems} />
+      <ListControls items={items} setItems={setItems} filter={filter} setFilteredItems={setFilteredItems} />
       <hr />
-      <TodoList items={items} setItems={setItems} />
+      <TodoList items={items} setItems={setItems} filter={filter} filteredItems={filteredItems} setFilteredItems={setFilteredItems} />
       <hr />
-      <StatusBar />
+      <StatusBar items={items} setFilter={setFilter} setFilteredItems={setFilteredItems} />
     </main>
   )
 }
