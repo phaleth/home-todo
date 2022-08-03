@@ -1,12 +1,11 @@
 import styles from '../components/status-bar.module.scss';
 import Filter from './filter';
+import TaskCounter from './task-counter';
 
 export default ({ items, setFilter, setFilteredItems }): JSX.Element => {
   return (
     <section className={styles.statusBar}>
-      <span>
-        <strong className={styles.counter}>3</strong> tasks left
-      </span>
+      <TaskCounter items={items} />
       <Filter items={items} setFilter={setFilter} setFilteredItems={setFilteredItems} />
     </section>
   )
