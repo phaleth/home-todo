@@ -4,18 +4,19 @@ import NewTodo from './app/new-todo';
 import ListControls from './app/list-controls';
 import TodoList from './app/todo-list';
 import StatusBar from './app/status-bar';
+import { Item } from '../types/item';
 
 export const ItemsContext = createContext(null);
 
 export default (): JSX.Element => {
-  const [items, setItems] = useState([
+  const [items, setItems]: [Item[], Function] = useState([
     {done: false, text: 'Buy groceries'},
     {done: true, text: 'Walk the dog'},
   ]);
 
-  const [filter, setFilter] = useState('All');
+  const [filter, setFilter]: [string, Function] = useState('All');
 
-  const [filteredItems, setFilteredItems] = useState([...items]);
+  const [filteredItems, setFilteredItems]: [Item[], Function] = useState([...items]);
 
   return (
     <main className={styles.container}>

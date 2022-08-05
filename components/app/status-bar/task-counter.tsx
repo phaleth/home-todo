@@ -1,11 +1,12 @@
 import { useContext } from 'react';
 import styles from './task-counter.module.scss';
 import { ItemsContext } from '../../app';
+import { Item } from '../../../types/item';
 
 export default () => {
-  const items = useContext(ItemsContext);
+  const items: Item[] = useContext(ItemsContext);
 
-  const incompleteTaskCount = items.filter(item => !item.done).length;
+  const incompleteTaskCount = items.filter((item: Item) => !item.done).length;
 
   return (
     <span>

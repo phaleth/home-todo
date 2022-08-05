@@ -1,11 +1,18 @@
-export const filterItems = (filter, items, setFilteredItems) => {
+import { Filter } from '../types/filter';
+import { Item } from '../types/item';
+
+export const filterItems = (
+  filter: string,
+  items: Item[],
+  setFilteredItems: Function,
+) => {
   switch (filter) {
     case 'Incomplete':
-      setFilteredItems(items.filter(item => item.done === false));
+      setFilteredItems(items.filter((item: Item) => item.done === false));
       break;
 
     case 'Complete':
-      setFilteredItems(items.filter(item => item.done === true));
+      setFilteredItems(items.filter((item: Item) => item.done === true));
       break;
 
     default:
@@ -14,7 +21,7 @@ export const filterItems = (filter, items, setFilteredItems) => {
   }
 };
 
-export const triggerFilter = (filter, setFilter) => {
+export const triggerFilter = (filter: string, setFilter: Function) => {
   switch (filter) {
     case 'Incomplete':
       setFilter('Incomplete');
@@ -30,8 +37,8 @@ export const triggerFilter = (filter, setFilter) => {
   }
 };
 
-export const updatedFilters = (i, filters) => {
-  filters.forEach((filter, index) => {
+export const updatedFilters = (i: number, filters: Filter[]): Filter[] => {
+  filters.forEach((filter: Filter, index: number) => {
     filter.selected = index === i;
   });
   return filters;

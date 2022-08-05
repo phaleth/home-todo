@@ -1,13 +1,14 @@
 import { useContext } from 'react';
 import { filterItems } from '../../../services/filter.service';
+import { Item } from '../../../types/item';
 import { ItemsContext } from '../../app';
 import styles from './complete-all.module.scss';
 
 export default ({ setItems, filter, setFilteredItems }): JSX.Element => {
-  const items = useContext(ItemsContext);
+  const items: Item[] = useContext(ItemsContext);
 
-  const handleCompleteAllClick = () => {
-    items.map(item => item.done = true);
+  const handleCompleteAllClick = (): void => {
+    items.map((item: Item) => item.done = true);
     setItems([...items]);
     filterItems(filter, items, setFilteredItems);
   }
